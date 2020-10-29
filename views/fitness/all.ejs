@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fitness App</title>
+    <!-- need help importing font awesome -->
+    <script src="https://kit.fontawesome.com/e17e22fe1e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="hero">
+      <div class="nav-bar">
+        <div class="nav-logo">
+          <img src="../images/basic_logo.jpg" />
+        </div>
+        <div class="nav-links" id="nav-links">
+          <i class="fas fa-close" onclick="closeMenu()"></i>
+          <ul>
+            <a href="/"><li>Home</li></a>
+            <a href="/fitness/new"><li>Add Workout</li></a>
+            <a href="/fitness/all"><li>My Workouts</li></a>
+            <a href="/fitness/Login"><li>Login</li></a>
+            <a href="#"><li>Logout</li></a>
+          </ul>
+          <button type="button" class="btn">Login</button>
+        </div>
+        <i class="fas fa-bars" onclick="showMenu()"></i>
+      </div>
+      <div class="banner-title">
+        <h1>Fitness <br />
+          <span>is a</span><br />
+          Religion
+        </h1>
+        <button type="button" class="btn"><a href="/fitness/all">All Workouts</a></button>
+      </div>
+      <div class="vertical-bar">
+        <div class="search-icon"></div>
+        <i class="fas fa-dumbbell"></i>
+        <i class="fas fa-dumbbell" aria-hidden="true"></i>
+        <i class="fas fa-search"></i>
+        <div class="social-icon"></div>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+
+      <h1>Workout List</h1>
+      <table id="workout-table" class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% db_fitness.workouts.forEach(function(f) { %>
+            <tr>
+              <td><%= f.workoutName %></td>
+              <td><%= f.workoutType %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <script>
+      var show = document.getElementById("nav-links");
+      function showMenu() {
+        show.style.right = "0";
+      }
+      function closeMenu() {
+        show.style.right = "-200";
+      }
+    </script>
+  </body>
+</html>
