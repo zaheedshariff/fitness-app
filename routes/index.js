@@ -20,6 +20,11 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
+
 // this declares the controller for the workouts page
 const fitnessCtrl = require("../controllers/fitness");
 const fitness = require("../models/fitness");
