@@ -66,6 +66,7 @@ function deleteOne(id) {
   // Find the index based on the id of the todo object
   const idx = skills.findIndex(skills => skills.id === parseInt(id));
   skills.splice(idx, 1);
+  res.redirect('/');
 };
 
 module.exports = {
