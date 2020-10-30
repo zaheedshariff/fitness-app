@@ -2,6 +2,8 @@
 
 <p>A simple workout app, which allows user to input their own excercises and track them</p>
 
+<a href="https://ga-project-fitness-app.herokuapp.com/">Live Demo</a>
+
 <h2>current state</h2>
 
 <li>Basic layout of responsive site/li>
