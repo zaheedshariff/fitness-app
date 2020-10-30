@@ -21,27 +21,6 @@ function newWorkout(req, res) {
   res.render("fitness/new.ejs");
 };
 
-// modified this, took our req.params.id
-// this function will create a workout for that specific user parent
-function createWorkout(req, res) {
-  Account.findById("5f9af3e52dc0a854c8569b44", function(err, account) {
-    account.workouts.push(req.body);
-    account.save(function(err) {
-      res.redirect('/fitness/all');
-    });
-  });
-}
-
-// This function will show all the workouts
-function getAll (req, res) {
-  Account.findById("5f9af3e52dc0a854c8569b44", function(err, db_fitness){
-      console.log('this is being logged:' + db_fitness);
-      res.render('fitness/all', { db_fitness });
-  })
-};
-
-
-
 // this function will post the new workout
 // function createWorkout(req, res) {
 //   // remove whitespace next to commas
@@ -58,13 +37,51 @@ function getAll (req, res) {
 //     res.redirect("/fitness/all");
 //   });
 // };
+// this was the old code
+
+// function createWorkout(req, res) {
+//   Account.findById(req.params.id, function(err, account) {
+//     account.workouts.push(req.body);
+//     account.save(function(err) {
+//       res.redirect('/fitness/all');
+//     });
+//   });
+// }
 
 
-// this exports all the functions
+// This function will show all the workouts
+function getAll (req, res) {
+  Account.findById(req.params.id, function(err, db_fitness){
+      console.log('this is being logged:' + db_fitness);
+      res.render('fitness/all', { db_fitness });
+  })
+};
+
+function googleIndex(req, res, next) {
+  console.log(req.query)
+  // Make the query object to use with Student.find based up
+  // the user has submitted the search form or now
+  let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+  // Default to sorting by name
+  let sortKey = req.query.sort || 'name';
+  Account.find(modelQuery)
+  .sort(sortKey).exec(function(err, account) {
+    if (err) return next(err);
+    // Passing search values, name & sortKey, for use in the EJS
+    res.render('/', {
+      account,
+      user: req.user,
+      name: req.query.name,
+      sortKey
+    });
+  });
+}
+
 module.exports = {
+  googleIndex,
   myAccount,
   createAccount,
   newWorkout,
-  createWorkout, 
+  // createWorkout, 
   getAll,
 };

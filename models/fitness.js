@@ -28,6 +28,12 @@ const fitnessSchema = new Schema({
 
 
 const accountSchema = new Schema ({
+  googleId: {
+    type: String,
+  },
+  firstName: {
+    type: String,
+  },
   firstName: {
     type: String,
   },
