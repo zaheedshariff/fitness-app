@@ -25,8 +25,3 @@ function deleteOne(id) {
 function deleteOne(req, res) {
     skills.deleteOne(req.params.id);
     res.redirect('/skills/all');
-};
-
-              <td><form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
-                    <button type="submit">X</button>
-                    </form></td>

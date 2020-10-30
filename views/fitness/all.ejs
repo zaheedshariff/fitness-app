@@ -26,7 +26,7 @@
           <ul>
             <a href="/"><li>Home</li></a>
             <a href="/fitness/new"><li>Add Workout</li></a>
-            <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login</a>
+            <a href="/fitness/all"><li>My Workouts</li></a>
             <a href="/auth/google"><li>Login</li></a>
             <a href="/logout"> <li>Logout</li></a>
           </ul>
@@ -63,6 +63,8 @@
               <td><%= f.sets %></td>
               <td><%= f.reps %></td>
               <td><%= f.durationMins %></td>
+              <td><form action="/fitness/<%= f.id %>?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit">X</button> </form></td>
             </tr>
             <% }) %>
         </tbody>

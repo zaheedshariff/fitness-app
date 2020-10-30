@@ -55,10 +55,8 @@ router.post('/add-workout', fitnessCtrl.createWorkout);
 //get all workouts 
 router.get('/fitness/all', fitnessCtrl.getAll);
 
-
-
-// POST /Workouts
-// router.post('/add-workout', fitnessCtrl.createFitness);
+//delete one 
+router.delete('/:id', fitnessCtrl.deleteOne)
 
 
 
