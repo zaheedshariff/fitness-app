@@ -39,14 +39,14 @@ function newWorkout(req, res) {
 // };
 // this was the old code
 
-// function createWorkout(req, res) {
-//   Account.findById(req.params.id, function(err, account) {
-//     account.workouts.push(req.body);
-//     account.save(function(err) {
-//       res.redirect('/fitness/all');
-//     });
-//   });
-// }
+function createWorkout(req, res) {
+  Account.findById(req.params.id, function(err, account) {
+    account.workouts.push(req.body);
+    account.save(function(err) {
+      res.redirect('/fitness/all');
+    });
+  });
+}
 
 
 // This function will show all the workouts
@@ -82,6 +82,6 @@ module.exports = {
   myAccount,
   createAccount,
   newWorkout,
-  // createWorkout, 
+  createWorkout, 
   getAll,
 };
