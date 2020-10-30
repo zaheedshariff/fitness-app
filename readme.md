@@ -6,7 +6,7 @@
 
 <h2>current state</h2>
 
-<li>Basic layout of responsive site/li>
+<li>Basic layout of responsive site</li>
 <li>Ability to add workouts</li>
 
 <h2>Future state</h2>
