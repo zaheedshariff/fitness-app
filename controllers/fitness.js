@@ -1,21 +1,6 @@
 // This imports the model
 let Account = require("../models/fitness");
 
-// this function is a placeholder for the accounts page
-function myAccount(req, res) {
-  res.render("fitness/account.ejs");
-};
-
-// This function will create a new account
-function createAccount(req, res)  {
-  console.log('form data' + JSON.stringify(req.body)); //the json.stringify helps to see what users are sending in the terminal for the form data
-  Account.create(req.body, function(err) { //this creates an object into the database
-      res.redirect('/fitness/new');  // in this instance its easier to do a redirect, as opposed to render, render will ask for the function and parameters
-  })
-};
-
-//add a workout session, to the account profile
-
 // first render the path and create function:
 function newWorkout(req, res) {
   res.render("fitness/new.ejs");
@@ -40,7 +25,7 @@ function newWorkout(req, res) {
 // this was the old code
 
 function createWorkout(req, res) {
-  Account.findById(req.params.id, function(err, account) {
+  Account.findById("5f9c1c1ce933d88b27956960", function(err, account) {
     account.workouts.push(req.body);
     account.save(function(err) {
       res.redirect('/fitness/all');
@@ -51,7 +36,7 @@ function createWorkout(req, res) {
 
 // This function will show all the workouts
 function getAll (req, res) {
-  Account.findById(req.params.id, function(err, db_fitness){
+  Account.findById("5f9c1c1ce933d88b27956960", function(err, db_fitness){
       console.log('this is being logged:' + db_fitness);
       res.render('fitness/all', { db_fitness });
   })
@@ -79,9 +64,27 @@ function googleIndex(req, res, next) {
 
 module.exports = {
   googleIndex,
-  myAccount,
-  createAccount,
   newWorkout,
   createWorkout, 
   getAll,
 };
+
+
+
+// this function is a placeholder for the accounts page
+// function myAccount(req, res) {
+//   res.render("fitness/account.ejs");
+// };
+
+// This function will create a new account
+// function createAccount(req, res)  {
+//   console.log('form data' + JSON.stringify(req.body)); //the json.stringify helps to see what users are sending in the terminal for the form data
+//   Account.create(req.body, function(err) { //this creates an object into the database
+//       res.redirect('/fitness/new');  // in this instance its easier to do a redirect, as opposed to render, render will ask for the function and parameters
+//   })
+// };
+
+  // module.exports = {
+  //   myAccount,
+  //   createAccount,
+  // };

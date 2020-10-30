@@ -12,16 +12,19 @@ const fitnessSchema = new Schema({
     type: String,
     enum: ["Strength", "Cardio",],
   },
+  muscleCategory: {
+    type: String,
+  },
   date: {
     type: Date,
   },
   sets: {
     type: Number,
   },
-  Reps: {
+  reps: {
     type: Number,
   },
-  DurationMins: {
+  durationMins: {
     type: Number,
   },
 });

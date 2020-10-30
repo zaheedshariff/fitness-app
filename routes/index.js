@@ -20,6 +20,8 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+
+// don't think i need this
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();
   res.redirect('/auth/google');
@@ -37,10 +39,10 @@ router.get("/", function (req, res, next) {
 
 // Create an Account
 // These are the routes to the account page:
-router.get("/fitness/login", fitnessCtrl.myAccount);
+// router.get("/fitness/login", fitnessCtrl.myAccount);
 
 // create a new profile, manually
-router.post("/add-user", fitnessCtrl.createAccount);
+// router.post("/add-user", fitnessCtrl.createAccount);
 
 
 // Now create a workout
