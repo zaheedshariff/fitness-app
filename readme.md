@@ -13,7 +13,7 @@
 <li>Build library of your own workouts</li>
 <li>Create various stats</li>
 
-<img src="../images/front-page.jpg">
+<img src="/public/images/front-page.jpg">
 
 <h2>Technologies Used</h2>
 
