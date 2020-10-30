@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
   <body>
-
+    
     <div class="hero">
       <div class="nav-bar">
         <div class="nav-logo">
@@ -29,6 +29,8 @@
             <a href="/auth/google"><li>Login</li></a>
             <a href="/logout"> <li>Logout</li></a>
           </ul>
+          <video class="video" autoplay muted loop id="myVideo">
+            <source src="../images/production ID_4761699.mp4" type="video/mp4">
         </div>
         <i class="fas fa-bars" onclick="showMenu()"></i>
       </div>
@@ -37,9 +39,11 @@
             <span>you said</span><br>
             Today
         </h1>
-            <button type="button" class="btn"><a href="/fitness/all">All Workouts</a></button>
+        
 
     </div>
+
+    </video>
     <script>
       var show = document.getElementById('nav-links');
       function showMenu() {
